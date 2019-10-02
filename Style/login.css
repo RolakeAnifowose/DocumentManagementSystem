@@ -1,0 +1,88 @@
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F6F9;
+    font-family: 'Raleway', sans-serif;
+}
+.container{
+    width: 100%;
+    /* height: 100vh; */
+}
+.userdetails{
+    width: 27%;
+    height: auto;
+    background-color: white;
+    /*top: 5%;
+    bottom: 5%;
+    right: 5%;
+    left: 5%;*/
+    margin:auto;
+    padding-top: 2rem;
+    margin-top: 10rem;
+    position: relative;
+    overflow: auto;
+    padding: 1rem;
+}
+.details{
+    border: none;
+    border-bottom: 1px solid #bbbbbb;
+    height: 30px;
+    width: 75%;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    padding-left: 20px;
+    outline:none;
+}
+::placeholder{
+    margin: auto;
+    position: absolute;
+    font-weight: bold;
+    text-align:center;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Raleway';
+}
+input{
+    text-align: center;
+}
+.login{
+    width: 50%;
+    height: 50px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    color: white;
+    background-color: #ff6600;
+    border: 1px solid#ff6600;
+    border-radius: 25px;
+}
+p{
+    font-style: none;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: green;
+}
+h4{
+    text-align: center;
+    font-family: 'Raleway';
+    font-weight: lighter;
+}
+@media only screen and (max-width: 768px){
+    .details{
+        width: 80%;
+    }
+    .userdetails{
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .details{
+        width: 80%;
+    }
+}

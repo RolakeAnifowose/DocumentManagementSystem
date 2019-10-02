@@ -1,0 +1,28 @@
+div{
+    width: 150px;
+    height: 150px;
+    display: flex;
+}
+
+.one{
+    background: linear-gradient(red, green);
+}
+
+.two{
+    background: linear-gradient(to top, red, pink, blue, green);
+}
+
+button{
+    background: red;
+    font-size: 40px;
+    color: white;
+    position: fixed;
+    top: 0;
+    transform: translate(250px)
+}
+
+@keyframes move{
+    0%{
+        transform: translateX(200px);
+    }
+}

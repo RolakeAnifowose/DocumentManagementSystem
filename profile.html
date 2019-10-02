@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Profile</title>
+        <link rel="stylesheet" type="text/css" href="style/profile.css">
+        <meta name="viewport" content="width=device width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src = "/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="sidebar" id="sidebar" onreset="openSideBar()">
+                <ul class="sidemenu">
+                <a href="login.html"><h3 class="title">myDocs</h3></a>
+
+                <button id="modalBtn" class="btn">
+                        <i class="fa fa-plus"></i>
+                        Upload
+                </button>
+
+                <div id="simpleModal" class="modal" >
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="uploadfile">
+                                        <h2 style="text-align: center">File upload</h2> 
+                                    </div>   
+                                </div>
+
+                                <div class="modalbody" id="modalbody" draggable="true">
+                                    <i class="fa fa-file fa-3x" id="fileicon" style="text-align: center; margin: 0 auto"></i><br>
+                                    <input type="file" id="file"> 
+                                    <label for="file">Drag and drop or <span style="color: blue">browse</span> your files</label><br><br>
+                                    <!-- <progress id="progress-bar" max=100 value=0></progress> -->
+                                    <!-- <input type="text" class="filename" placeholder="Filename"> -->
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="closeBtn">Close</button>
+                                    <button class="submitFile">Upload</button>
+                                </div>
+                        </div>
+                    </div>
+
+                    <li><a href="home.html"><i class="fa fa-home"></i>
+                    <span class="side">Home</span>
+                    </a></li>
+                    <li><a href="recent.html"><i class="fa fa-history"></i></i>
+                        <span class="side">Recent</span>
+                    </a></li>
+                    <li><a href="bin.html"><i class="fa fa-trash"></i>
+                        <span class="side">Bin</span>
+                    </a></li>
+                </ul>
+            
+                <h5>Available Storage</h5>
+                <div class="progressbar">
+                    <div class="progressbar" style="width:25%"></div>
+                    <span class="storage__data">3GB of 25GB used</span>
+                </div>
+            </nav>
+
+            <div class="main-content">
+                <header>
+                    <div class="search">
+                        
+                        <input class="search__field" type="text" placeholder="Search ">
+                    </div>
+
+                    <div class="dropdown">        
+                        <button class="button" onclick="openDropdown()"><span><i class="fa fa-user-circle"></i>Anifowose Morolake
+                                <i class="fa fa-angle-down"></i></button></span>
+                        <div class="dropdown-content" id="dropdownmenu">
+                            <a href="profile.html">Profile</a>
+                            <a href="login.html">Logout</a>
+                        </div>
+                    </div>
+                </header>       
+                    
+            </div>
+            
+        <script>
+             function openDropdown(){
+                 document.getElementById('dropdownmenu').classList.toggle("show");
+             }
+
+            window.onclick = function(e) {
+            if (!e.target.matches('.button')) {
+            var dropdownmenu = document.getElementById("dropdownmenu");
+                if (dropdownmenu.classList.contains('show')) {
+                        dropdownmenu.classList.remove('show');
+                }
+            }
+            }
+
+            function openDropdownForUpload(){
+                 document.getElementById('dropdownforupload').classList.toggle("show");
+            }
+
+            window.onclick = function(e) {
+            if (!e.target.matches('.btn')) {
+            var dropdownmenu = document.getElementById("dropdownforupload");
+                if (dropdownforupload.classList.contains('show')) {
+                        dropdownforupload.classList.remove('show');
+                }
+            }
+            }
+
+             function openSideBar(){
+                 document.getElementsById('sidebar').style.display = block;
+             }
+             function closeSideBar(){
+                 document.getElementsById('sidebar').style.display = none;
+             }
+        </script>
+    </body>
+</html>

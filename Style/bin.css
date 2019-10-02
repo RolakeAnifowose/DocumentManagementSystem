@@ -1,0 +1,492 @@
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Raleway";
+}
+
+.sidebar{
+    overflow: hidden;
+    width: 15%;
+    bottom: 0;
+    top: 0;
+    position: fixed;
+    background: linear-gradient(343.9deg,#19887a,#6eac54);
+    font-family: "Raleway";
+    padding: 1rem;  
+}
+
+.side{
+    margin-left: 1rem;
+    color: #fff;
+}
+
+.main-content{
+    margin-left: 16.5%;
+}
+
+header{
+    border-bottom: 1px solid #bbb;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.title{
+    margin-top: -1rem;
+    font-size: 2rem;
+    color: #fff;
+}
+
+ul li{
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    font-weight: bold !important;
+    list-style: none;
+}
+
+ul li a {
+    color: #fff !important;
+}
+
+.btn{
+    background: #fff;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: 'Raleway';
+    margin-bottom: 2rem;
+    outline: none;
+    cursor: pointer;
+}
+
+#closeBar{
+    font-size: 25px;
+    position: absolute;
+    /* float: right; */
+    top: 0;
+    left: 130px;
+    color: white;
+}
+
+.openSideBarMenu{
+    float:left;
+    margin-right: 15px;
+    cursor: pointer; 
+    padding: 8px 5px;
+    background-color: #f2f2f2;
+    color: #8c8c8c;
+    border-radius: 5px;
+    outline: none;
+}    
+
+#menuicon:hover{
+    background-color: #f2f2f2;
+}
+
+.search__field{
+    padding: 8px 16px;
+    border-radius: 5px;
+    width: 30rem;
+    border: none;
+    border: 1px solid #bbb;
+    outline: none;
+    height: 30px;
+}
+
+.search{
+    float: left;
+}
+  
+.dropdown{
+        float: right;
+    margin-left: 10px;
+}
+  
+
+h5{
+    color: #fff;
+}
+
+.storage__data{
+    color: #fff;
+    font-family: 'Raleway';
+    font-size: 0.85rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul{
+    margin-left: -2rem;
+    margin-right: -2rem;
+    border-bottom: 1px solid #f5f6f9;
+}
+
+select{
+    width: 200px;
+    outline: none;
+}
+
+.fa-user-circle{
+    color: #bbb;
+}
+
+.dropdown .button{
+    outline: none;
+    border: none;
+    font-size: 20px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    cursor: pointer;
+    padding: 14px 16px;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    font-family: inherit;
+    background-color: i#f9f9f9;
+    z-index: 1;
+    min-width:160px;
+    background-color: white;
+    /*box-shadow: 0px 8px 16px 0px(0,0,0,0.2);*/
+    border: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.dropdown-content a{
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-family: inherit;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown-upload{
+    display: none;
+    position: absolute;
+    font-family: inherit;
+    background-color: i#f9f9f9;
+    z-index: 1;
+    min-width:200px;
+    background-color: white;
+    /*box-shadow: 0px 8px 16px 0px(0,0,0,0.2);*/
+    border: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    border-radius: 5px;
+}
+
+.dropdown-upload a{
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-family: inherit;
+}
+
+.dropdown-upload a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+img{
+    width: 100%;
+    height: 16rem;
+}
+
+.card{
+    height: 20rem;
+    width: 14rem;
+    margin-top: 20px;
+    margin-left: 20px;
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid #bbb;
+    border-radius: 7px;
+}
+
+.details{
+    background-color: white;
+    border: 0;
+    color: black;
+}
+
+.doc__title{
+    width: 14rem;
+    height: 2rem;
+    text-align:center;
+    background-color: white;
+    color: black;
+}
+
+.trash{
+    font-size: 50px;
+    text-align: center;
+    margin: 0 auto;
+    color: #6eac54;
+}
+
+.text{
+    font-family: "Raleway";
+    text-align: center;
+    font-size: lighter;
+    font-size: 20px;
+}
+
+.modal{
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+}
+
+.modal-content{
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40rem;
+    height: 22rem;
+    text-align: center
+}
+
+.uploadfile{
+    text-align: center;
+}
+
+.modal-header{
+    overflow: hidden;
+    height: 4rem;
+}
+
+.modalbody{
+    background-color: #f2f2f2;
+    /* height: 10rem; */
+    width: 30rem;
+    margin: auto;
+    /* display: inline-block; */
+    border: dashed #bbb;
+    border-radius: 5px;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.modal-footer{
+    margin-top: 2rem;
+    height: 6rem;
+    text-align: center;
+}
+
+.filename{
+    padding: 8px 16px;
+    border-radius: 5px;
+    width: 12rem;
+    border: 1px solid #bbb;
+    outline: none;
+    height: 30px;
+}
+
+.submitFile{
+    background-color: #6eac54;
+    color: white;
+    width: 10rem;
+    height: 2.5rem;
+    border-radius: 25px;
+    border: 1px solid #6eac54;
+    bottom: 0;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.closeBtn{
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    width: 10rem;
+    height: 2.5rem;
+    border-radius: 25px;
+    border: 1px solid white;
+    bottom: 0;
+    outline: none;
+    display: inline-block;
+    font-size: 18px;
+}
+
+[type="file"]{ 
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}
+
+label{
+    text-align:center;
+}
+
+#fileicon{
+    padding-top: 25px;
+}
+
+[type="file"] + label {
+    border-radius: 5px;
+    height: 3rem;
+    color: black;
+    cursor: pointer;
+    margin: auto;
+    display: inline-block;
+}
+
+@media only screen and (min-width: 768px) {
+    #menuicon{
+        display: none;
+    }
+    #closeBar{
+        display: none;
+    }
+    .openSideBarMenu{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) { 
+    .sidebar{
+        overflow: hidden;
+        display: none;
+    }
+
+   .container{
+       width: 100%;
+       overflow: hidden;
+       
+   }
+
+   nav{
+       display: none;
+       margin-top: 5rem;
+       position: sticky;
+   }
+
+   .main-content{
+       margin-left: 0;
+       overflow: auto;  
+   }
+   
+   header{
+       padding: none;
+       width: 100vw;
+       display: inline-block;
+       height: 3rem;
+   }
+
+   .openSideBarMenu{
+       display: block;
+   }
+
+   #menuicon{
+       display: block
+   }
+
+   .search__field{
+       width: 10rem;
+   }
+
+   .button{
+       padding: none;
+   }
+
+   .button-text{
+       display: none;
+   }
+
+   .cards{
+       display: flex;
+       flex-wrap: wrap;
+       
+   }
+
+   .card{
+       display: inline-block;
+       margin: auto;
+       margin-top: 15px;
+   }
+
+   .modal-content{
+       margin: 10% auto;
+       width: 20rem;
+       margin-top: 100px;
+       border-radius: 8px;
+   }
+
+   .modalbody{
+       width: 20rem;
+   }
+
+   #profileicon{
+       padding: 0;
+       /* size: 200px; */
+   
+       /* font-size: 50px; */
+   }
+
+   .button{
+       float: right;
+       font-size: 50px;
+   }
+
+   .dropdown{
+       /* position: relative; */
+       font-family: inherit;
+       /* z-index: 1; */
+       width: 100px;
+   }
+
+   .dropdown-content{
+       position: fixed;
+       font-family: inherit;
+       width: 35px;
+       font-family: inherit;
+       background-color: i#f9f9f9;
+       z-index: 1;
+       background-color: white;
+       border: 1px solid rgba(0,0,0,.15);
+       box-shadow: 0 6px 12px rgba(0,0,0,.175);
+       float: right;
+   }
+
+   .dropdown-content a{
+       float: none;
+       color: black;
+       padding: 12px 16px;
+       text-decoration: none;
+       display: block;
+       text-align: left;
+       font-family: inherit;
+   }
+
+   .dropdown-content a:hover{
+       background-color: #ddd;
+   }
+
+}

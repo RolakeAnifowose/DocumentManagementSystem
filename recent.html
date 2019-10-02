@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Recent</title>
+        <link rel="stylesheet" type="text/css" href="style/recent.css">
+        <meta name="viewport" content="width=device width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src = "/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+            
+        <div class="container">
+            <nav class="sidebar" id="side-bar">
+                <ul class="sidemenu">
+                        <span onclick="closesidebar()"  class="closeSideBar"><i class="fa fa-times" id="closeBar"></i></span>
+                <a href="login.html"><h3 class="title">myDocs</h3></a>
+                
+                <button id="modalBtn" class="btn">
+                    <i class="fa fa-plus"></i>
+                    Upload
+                </button>
+
+                    <li><a href="home.html"><i class="fa fa-home"></i>
+                        <span class="side">Home</span>
+                    </a></li>
+                    
+                    <li><a href="recent.html"><i class="fa fa-history"></i>
+                        <span class="side">Recent</span>
+                    </a></li>
+                    <li><a href="bin.html"><i class="fa fa-trash"></i>
+                        <span class="side">Bin</span>
+                    </a></li>
+                </ul>
+            
+
+                <h5>Available Storage</h5>
+                <div class="progressbar">
+                    <div class="progressbar" style="width:25%"></div>
+                    <span class="storage__data">3GB of 25GB used</span>
+                </div>
+            </nav>
+
+            <div class="main-content">
+                <header>
+                    <button class="openSideBarMenu" onclick="openSideBar()">
+                        <i class="fa fa-bars fa-2x" id="menuicon"></i>
+                    </button>
+
+                    <div class="search">
+                        <input class="search__field" type="text" placeholder="Search ">
+                    </div>
+
+                    <div class="dropdown">        
+                        <button class="button" onclick="openDropdown()"><span><i class="fa fa-user-circle"></i></span><span class="button-text">Anifowose Morolake</span>
+                            <i class="fa fa-angle-down"></i></button>
+                        <div class="dropdown-content" id="dropdownmenu">
+                            <a href="profile.html">Profile</a>
+                            <a href="login.html">Logout</a>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="cards" id="cardsId">
+                        <div class="card ">
+                                <table>
+                                    <span class="table-header">
+                                        <input class="search__field2" type="text" placeholder="Search"><hr>
+                                    </span>
+                                    
+                                </div>
+                                        <tr>
+                                            <th>S/N</th>
+                                            <th>Name</th>
+                                            <th>Created</th>
+                                            <th>Last Modified</th>
+                                            <th>Deleted</th>
+                                            <th>File URL</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Core Java</td>
+                                            <td class="created">18/9/2019</td>
+                                            <td class="modified">20/9/2019</td>
+                                            <td class="deleted">22/9/2019</td>
+                                            <td><a href="https://drive.google.com/drive/u/0/my-drive?ths=true">https://drive.google.com/drive/u/0/my-drive?ths=true</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Eloquent Javascript</td>
+                                            <td class="created">14/9/2019</td>
+                                            <td class="modified">20/9/2019</td>
+                                            <td class="deleted">29/9/2019</td>
+                                            <td><a href="https://drive.google.com/drive/u/0/my-drive?ths=true">https://drive.google.com/drive/u/0/my-drive?ths=true</a></td>
+                                            </tr>
+                                        <tr> 
+                                            <td>3</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                        </div>
+                    </div>
+                </div>   
+   
+                
+
+                </div>
+        </div>
+        
+        <div id="simpleModal" class="modal" >
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="uploadfile">
+                                <h2 style="text-align: center">File upload</h2> 
+                            </div>   
+                        </div>
+
+                        <div class="modalbody" id="modalbody" draggable="true">
+                                <i class="fa fa-file fa-3x" id="fileicon" style="text-align: center; margin: 0 auto"></i><br>
+                                <input type="file" id="file"> 
+                                <label for="file">Drag and drop or <span style="color: blue">browse</span> your files</label><br><br>
+                                <!-- <progress id="progress-bar" max=100 value=0></progress> -->
+                            <!-- <input type="text" class="filename" placeholder="Filename"> -->
+                    </div>
+
+                    <div class="modal-footer">
+                <button class="closeBtn">Close</button>
+                <button class="submitFile">Upload</button>
+            </div>
+        </div>
+
+        <script>
+             function openDropdown(){
+                 document.getElementById('dropdownmenu').classList.toggle("show");
+                 document.getElementById('profile').classList.toggle("show");
+             }
+
+            window.onclick = function(e) {
+            if (!e.target.matches('.button')) {
+            var dropdownmenu = document.getElementById("dropdownmenu");
+                if (dropdownmenu.classList.contains('show')) {
+                        dropdownmenu.classList.remove('show');
+                }
+            }
+            }
+
+            //Modal
+            let modal = document.getElementById('simpleModal');
+            //Button
+            let modalBtn = document.getElementById('modalBtn');
+            //Close Modal
+            let closeBtn =  document.getElementsByClassName('closeBtn')[0];
+
+            modalBtn.addEventListener('click', openModal);
+
+            closeBtn.addEventListener('click', closeModal);
+
+            window.addEventListener('click', outsideModal);
+
+            function openModal(){
+                modal.style.display = "block";
+            }
+
+            function closeModal(){
+                modal.style.display = "none";
+            }
+
+            function outsideModal(e){
+                if(e.target == modal){
+                    modal.style.display = "none";
+                }
+            }
+
+            function openSideBar(){
+                let side = document.getElementById('side-bar');
+   
+                side.addEventListener('click', openSideBar);
+
+                let cardsId = document.getElementById('cardsId');
+
+                let maincontent = document.getElementById('maincontent');
+                
+                   side.style.display = "block";
+                   side.style.overflow = "auto;"
+                   side.style.width = "140px";
+                   cardsId.style.marginLeft = "180px";
+                   cardsId.style.position = "fixed";
+                }
+   
+                function closesidebar(){
+                let side = document.getElementById('side-bar');
+   
+                side.addEventListener('click', closesidebar);
+                   side.style.display = "none";
+                   cardsId.style.marginLeft = "0px";
+                   cardsId.style.position = "relative";
+                }  
+        </script>
+
+        <div id="simpleModal" class="modal" >
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="uploadfile">
+                                        <h2 style="text-align: center">File upload</h2> 
+                                    </div>   
+                                </div>
+
+                                <div class="modalbody" id="modalbody" draggable="true">
+                                    <i class="fa fa-file fa-3x" id="fileicon" style="text-align: center; margin: 0 auto"></i><br>
+                                    <input type="file" id="file"> 
+                                    <label for="file">Drag and drop or <span style="color: blue">browse</span> your files</label><br><br>
+                                    <!-- <progress id="progress-bar" max=100 value=0></progress> -->
+                                    <!-- <input type="text" class="filename" placeholder="Filename"> -->
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="closeBtn">Close</button>
+                                    <button class="submitFile">Upload</button>
+                                </div>
+                        </div>
+                    </div>
+    </body>
+</html>

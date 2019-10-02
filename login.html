@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="Style/login.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+        <!--<link rel="stylesheet" media="(max-width: 768px)" href="max-640px.css">
+        <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
+        <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+        <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+        <script>
+            function validate(){
+                var email = document.loginForm.email.value;
+                var password = document.loginForm.password.value;
+
+                if(email == "" || email == null){
+                    alert("Email cannot be blank");
+                }
+                else if(password == "" || passowrd == null){
+                    alert("Enter your password");
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="userdetails">
+                <form name="loginForm" method="POST" action="login.php" onsubmit="return validate()">
+
+                    <h4>Please enter your details to login</h4><br>
+
+                    <input type="email" name="email" class="details" placeholder="Email Address"><br><br>
+
+                    <input type="password" name="password" class="details" placeholder="Password"><br><br><br>
+
+                    <input type="submit" value="LOGIN" name="login" class="login">
+
+                    <p><centre><a href="passwordreset.html">Forgot Password?</a></centre></p>
+
+                    <p><centre><a href="signup.html">Registered User? Signup</a></centre></p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

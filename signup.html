@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Up</title>
+        <link rel="stylesheet" type="text/css" href="Style/signup.css">
+        <link href="Style/signup.css" rel="stylesheet" media="all and (max-width: 1024px)">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+        <script>
+            function validate(){
+                var firstname = document.signUpForm.firstname.value;
+                var lastname = document.signUpForm.lastname.value;
+                var email = document.signUpForm.email.value;
+                var phonenumber = document.signUpForm.phonenumber.value;
+                var password = document.signUpForm.password.value;
+                var confirmpassword = document.signUpForm.confirmpassword.value;
+
+                if(firstname == "" || firstname == null){
+                    alert("Enter your firstname");
+                }
+                else if(lastname == "" || lastname == null){
+                    alert("Enter your lasname");
+                }
+                else if(email == ""){
+                    alert("Email cannot be blank");
+                }
+                else if(phonenumber == ""){
+                    alert("Enter your phone number");
+                }
+                if(isNaN(phonenumber)){
+                    alert("Phone number isn't valid");
+                }
+                else if(password == "" || passowrd == null){
+                    alert("Enter your password");
+                }
+                else if(confirmpassword != password){
+                    alert("Enter the same password as before");
+                }
+                else if(password.length<6){  
+                    alert("Password must be at least 6 characters long"); 
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="userdetails">
+                <form name="signUpForm" method="POST" action="signupprocess.php" onsubmit="return validate()">
+
+                    <h4>Fill the form below to sign up</h4><br>
+                    
+                    <input type="text" name="firstname" class="details" placeholder="Firstname"><br><br>
+
+                    <input type="text" name="lastname" class="details" placeholder="Lastname"><br><br>
+
+                    <input type="email" name="email" class="details" placeholder="Email Address"><br><br>
+
+                    <input type="text" name="phonenumber" class="details" placeholder="Phone Number"><br><br>
+
+                
+                    <input type="password" name="password" class="details" placeholder="Password"><br><br>
+
+                    <input type="password" name="confirmpassword" class="details" placeholder="Confirm Password"><br><br>
+
+                    <input type="submit" value="SIGN UP" name="signup" class="signup">
+
+                    <p><centre><a href="login.html">Have an account? Login</a></centre></p>
+            </form>
+            </div>
+        </div>
+    </body>
+</html>

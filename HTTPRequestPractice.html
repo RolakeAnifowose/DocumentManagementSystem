@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background: rgb(2,0,36);
+                background: linear-gradient(90deg, rgba(2,0,36,1) 13%, rgba(108,9,121,1) 100%);
+            }
+
+            .buttons{
+                text-align: center;
+            }
+
+            .container{
+                margin: 14rem;
+                width: 20rem;
+                display: inline-block;
+                height: auto;
+                background-color: white;
+                overflow: auto;
+                padding: 0.3rem;
+            }
+
+            button{
+                background-color: black;
+                color: white;
+                border: purple;
+                height: 40px;
+                width: 100px;
+                border-radius: 5px;
+                display: inline-block;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                outline: none;
+                cursor: pointer;
+            }
+
+            @media only screen and (max-width: 768px){
+                .buttons{
+                    text-align: center;
+                    margin: 25rem;
+                    width: 50rem;
+                    height: 400px;
+                }
+                .container{
+                    margin: 25rem;
+                    width: 50rem;
+                    height: 400px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="buttons">
+        <div class="container">
+            <button id="get" onclick="getRequest()">GET</button><br>
+            <button id="post" onclick="postRequest()">POST</button><br>
+            <button id="put" onclick="putRequest()" >PUT</button><br>
+            <button id="deletebutton" onclick="deleteRequest()">DELETE</button>
+        </div>
+        </div>
+        <script>
+            
+            function getRequest() {
+            let get = document.getElementById('get');
+            get.addEventListener('click', getRequest);
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("get").alert = alert(this.responseText);
+                // console.log(this.responseText)
+                }
+            };
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+            xhr.send();
+            }
+
+            function postRequest(){
+            let url = "https://jsonplaceholder.typicode.com/posts";
+
+            let data = {};
+            data.id = "1";
+            data.firstname = "Rolake";
+            data.age  = "20";
+            let json = JSON.stringify(data);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+            xhr.onload = function () {
+                let users = JSON.parse(xhr.responseText);
+                if (xhr.readyState == 4 && xhr.status == "201") {
+                    console.log(users);
+                    alert(JSON.stringify(users))
+                } else {
+                    console.error(users);
+                }
+            }
+            xhr.send(json);
+            }
+
+            function putRequest(){
+                let url = "https://jsonplaceholder.typicode.com/posts/1";
+
+                let data = {};
+                data.id = "1"
+                data.firstname = "Ololade";
+                data.age  = "25";
+                let json = JSON.stringify(data);
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("PUT", url, true);
+                xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+                xhr.onload = function () {
+                    let users = JSON.parse(xhr.responseText);
+                    if (xhr.readyState == 4 && xhr.status == "200") {
+                        console.log(users);
+                        alert(JSON.stringify(users))
+                    } else {
+                        console.error(users);
+                    }
+                }
+                xhr.send(json);
+
+            }
+
+            function deleteRequest(){
+            let url = "https://jsonplaceholder.typicode.com/posts/1";
+            let xhr = new XMLHttpRequest();
+            xhr.open("DELETE", url, true);
+            xhr.onload = function () {
+                let users = JSON.parse(xhr.responseText);
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    alert("Deleted")
+                } else {
+                    console.error(users);
+                }
+            }
+            xhr.send(null);
+            }
+    
+            </script>
+    </body>
+</html>
