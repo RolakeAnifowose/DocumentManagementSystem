@@ -6,69 +6,249 @@
         <link href="Style/signup.css" rel="stylesheet" media="all and (max-width: 1024px)">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-
-        <script>
-            function validate(){
-                var firstname = document.signUpForm.firstname.value;
-                var lastname = document.signUpForm.lastname.value;
-                var email = document.signUpForm.email.value;
-                var phonenumber = document.signUpForm.phonenumber.value;
-                var password = document.signUpForm.password.value;
-                var confirmpassword = document.signUpForm.confirmpassword.value;
-
-                if(firstname == "" || firstname == null){
-                    alert("Enter your firstname");
-                }
-                else if(lastname == "" || lastname == null){
-                    alert("Enter your lasname");
-                }
-                else if(email == ""){
-                    alert("Email cannot be blank");
-                }
-                else if(phonenumber == ""){
-                    alert("Enter your phone number");
-                }
-                if(isNaN(phonenumber)){
-                    alert("Phone number isn't valid");
-                }
-                else if(password == "" || passowrd == null){
-                    alert("Enter your password");
-                }
-                else if(confirmpassword != password){
-                    alert("Enter the same password as before");
-                }
-                else if(password.length<6){  
-                    alert("Password must be at least 6 characters long"); 
-                }
-            }
-        </script>
     </head>
 
     <body>
         <div class="container">
+            
             <div class="userdetails">
-                <form name="signUpForm" method="POST" action="signupprocess.php" onsubmit="return validate()">
+                <form name="signUpForm" method="POST" onsubmit="return validate()">
 
                     <h4>Fill the form below to sign up</h4><br>
                     
-                    <input type="text" name="firstname" class="details" placeholder="Firstname"><br><br>
+                    <div class="divForUserDetails">
+                        <div class="firstClassOfDetails">
+                        <div class="detailsDiv">
+                            <input type="text" name="firstname" class="details" id="firstname" placeholder="Firstname" onblur="checkFirstName()" required>
+                            <p id="firstnameerror" class="error"></p>
+                        </div>
+                        
+                        <div class="detailsDiv">
+                            <input type="text" name="lastname" id="lastname" class="details" placeholder="Lastname" onblur="checkLastName()" required>
+                            <p id="lastnameerror" class="error" ></p>
+                        </div>
 
-                    <input type="text" name="lastname" class="details" placeholder="Lastname"><br><br>
+                        <div class="detailsDiv">
+                            <input type="email" name="email" id="email" class="details" placeholder="Email Address" onblur="matchEmail()" onblur="checkEmail()" required>
+                            <p id="emailerror" class="error"></p>
+                        </div>
 
-                    <input type="email" name="email" class="details" placeholder="Email Address"><br><br>
+                        <div class="detailsDiv">
+                        <input type="number" name="phonenumber" id="phonenumber" class="details" placeholder="Phone Number" onblur="matchPhone()" required>
+                        <p id="phonenumbererror" class="error"></p>
+                        </div>
 
-                    <input type="text" name="phonenumber" class="details" placeholder="Phone Number"><br><br>
+                        <div class="detailsDiv">
+                        <input type="text" name="institution" id="institution" class="details" placeholder="Institution" onblur="checkInstitution()">
+                        <p id="institutionerror" class="error" ></p>
+                        </div>
+                        </div>
 
-                
-                    <input type="password" name="password" class="details" placeholder="Password"><br><br>
+                        <div class="secondClassOfDetails">
+                        <div class="detailsDiv">
+                        <input type="text" id="city" class="details" placeholder="City" onblur="checkCity()">
+                        <p id="cityerror" class="error" ></p>
+                        </div>
 
-                    <input type="password" name="confirmpassword" class="details" placeholder="Confirm Password"><br><br>
+                        <div class="detailsDiv">
+                        <input type="text" id="state" class="details" placeholder="State" onblur="checkState()">
+                        <p id="stateerror" class="error" ></p>
+                        </div>
 
-                    <input type="submit" value="SIGN UP" name="signup" class="signup">
+                        <div class="detailsDiv">
+                        <input type="text" id="country" class="details" placeholder="Country" onblur="checkCountry()">
+                        <p id="countryerror" class="error" ></p>
+                    </div>
 
-                    <p><centre><a href="login.html">Have an account? Login</a></centre></p>
+                        <div class="detailsDiv"> 
+                        <input type="password" name="password" id="password" class="details" placeholder="Password">
+                        <p id="passworderror" class="error"></p>
+                    </div>
+
+                        <div class="detailsDiv">
+                        <input type="password" name="confirmpassword" id="confirmpassword" class="details" placeholder="Confirm Password" onblur="checkPassword()">
+                        <p id="passworderror" class="error"></p>
+                        </div>
+                        </div>
+                    </div>
+
+                        <input type="submit" value="SIGN UP" name="signup" id="signup" class="signup" onclick="signUp()">
+
+                        <p><centre><a href="login.html">Have an account? Login</a></centre></p>
+                        
             </form>
             </div>
         </div>
+
+        <script>
+            
+            function matchEmail(){
+                // let email = /^[a-z]\d\+\@/;
+                let email = /.{1,}@[^.]{1,}/;
+                if(!email.test(document.getElementById('email').value))
+                {
+                    document.getElementById('emailerror').innerHTML = "Email is not valid";
+                    return false;
+                }
+                if(email.test(document.getElementById('email').value)){
+                    document.getElementById('emailerror').style.display = "none";
+                }    
+            }
+
+            function matchPhone(){
+                let phonenumber = /^\d*$/;
+                // if(!phonenumber.test(document.getElementById('phonenumber').value))
+                //     {
+                //         document.getElementById('phonenumbererror').innerHTML = "Phone number can only be digits between 0-9";
+                //         return false;
+                //     }
+                // if(phonenumber.test(document.getElementById('phonenumber').value))
+                //     {
+                //         document.getElementById('phonenumbererror').style.display = "none";
+                //         return false;
+                //     }
+                if(document.getElementById('phonenumber').value.toString().length < 11){
+                    document.getElementById('phonenumbererror').innerHTML = "Phone number must be 11 digits";
+                }
+                if(document.getElementById('phonenumber').value.toString().length == 11){
+                    document.getElementById('phonenumbererror').style.display = "none";
+                }
+            }
+
+            function checkFirstName(){
+                let firstname = document.getElementById('firstname').value;
+                if(firstname == "" || firstname == null){
+                    document.getElementById('firstnameerror').innerHTML = "Firstname field is blank";
+                }
+                if(!firstname == "" || firstname == null){
+                    document.getElementById('firstnameerror').style.display = "none";
+                }
+            }
+
+            function checkLastName(){
+                let lastname = document.getElementById('lastname').value;
+                if(lastname == "" || lastname == null){
+                    document.getElementById('lastnameerror').innerHTML = "Lastname field is blank";
+                }
+                if(!lastname == "" || lastname == null){
+                    document.getElementById('lastnameerror').style.display = "none";
+                }
+            }
+
+            function checkEmail(){
+                let email = document.getElementById('email').value;
+                if(email == "" || email == null){
+                    document.getElementById('emailerror').innerHTML = "Email is not valid";
+                }
+                if(!email == "" || email == null){
+                    document.getElementById('emailerror').style.display = "none";
+                }
+            }
+
+            function checkInstitution(){
+                let institution = document.getElementById('institution').value;
+                if(institution == "" || institution == null){
+                    document.getElementById('institutionerror').innerHTML = "Institution cannot be blank";
+                }
+                if(!institution == "" || institution == null){
+                    document.getElementById('institutionerror').style.display = "none";
+                }
+            }
+
+            function checkCity(){
+                let city = document.getElementById('city').value;
+                if(city == "" || city == null){
+                    document.getElementById('cityerror').innerHTML = "City cannot be blank";
+                }
+                if(!city == "" || city == null){
+                    document.getElementById('cityerror').style.display = "none";
+                }
+            }
+
+            function checkState(){
+                let state = document.getElementById('state').value;
+                if(state == "" || state == null){
+                    document.getElementById('stateerror').innerHTML = "State cannot be blank";
+                }
+                if(!state == "" || state == null){
+                    document.getElementById('stateerror').style.display = "none";
+                }
+            }
+
+            function checkCountry(){
+                let country = document.getElementById('country').value;
+                if(country == "" || country == null){
+                    document.getElementById('countryerror').innerHTML = "Country cannot be blank";
+                }
+                if(!country == "" || country == null){
+                    document.getElementById('countryerror').style.display = "none";
+                }
+            }
+
+            function checkPassword(){
+                let password = document.getElementById('password').value;
+                let confirmpassword = document.getElementById('confirmpassword').value;
+
+                if(password != confirmpassword){
+                    document.getElementById('passworderror').innerHTML = "Password does not match";
+                }
+                if(password == confirmpassword){
+                    document.getElementById('passworderror').style.display = "none";
+                }
+            }
+
+            
+            let payload = [];
+            let addUser = (ev) => {
+                ev.preventDefault();
+                let user = {
+                    firstname: document.getElementById('firstname').value,
+                    lastname: document.getElementById('lastname').value,
+                    email: document.getElementById('email').value,
+                    phonenumber: document.getElementById('phonenumber').value,
+                    password: document.getElementById('password').value,
+                    confirmpassword: document.getElementById('confirmpassword').value
+                }
+            payload.push(user);
+            document.forms[0].reset();
+            signUp();
+
+            console.warn('Added a new user', {payload});
+            
+            localStorage.setItem('UserPayload', JSON.stringify(payload));
+            } 
+
+            document.addEventListener('DOMContentLoaded', ()=>{
+                document.getElementById('signup').addEventListener('click', addUser)
+            });  
+
+            function signUp(){
+                let user = {
+                    firstname: document.getElementById('firstname').value,
+                    lastname: document.getElementById('lastname').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phonenumber').value,
+                    institution: document.getElementById('institution').value,
+                    city: document.getElementById('city').value,
+                    state: document.getElementById('state').value,
+                    country: document.getElementById('country').value,
+                    password: document.getElementById('password').value,
+                    
+                }
+
+                fetch('https://studypoolbackend.herokuapp.com/user/signup', {
+                method: 'POST', 
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+                })
+                .then(response => response.json())
+
+                // window.location = "home.html";
+            }
+                
+            
+        </script>
     </body>
 </html>

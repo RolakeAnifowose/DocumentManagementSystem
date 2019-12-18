@@ -1,0 +1,151 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway';
+}
+
+.container{
+    position: relative;
+}
+
+.header{
+    background-color: white;
+    /* padding: 1rem; */
+    /* position: fixed; */
+    width: 100%;
+    /* height: 2rem */
+}
+
+a{
+    text-decoration: none;
+}
+
+.title{
+    /* float: left; */
+    text-decoration: none;
+    color: black;
+    margin-left: 1rem;
+}
+
+.docsButton{
+    height: 3rem;
+    background-color: #6A63DD;
+    color: white;
+    width: 10rem;
+    border: #6A63DD;
+    font-size: 15px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* float: right; */
+}
+
+.content1{
+    position: relative;
+    text-align: center;
+    height: 30rem;
+    /* background-color: black; */
+}
+
+.content2{
+    position: relative;
+    height: 30rem;
+}
+
+.content3{
+    position: relative;
+    height: 30rem;
+}
+
+.safePlaceForFiles{
+    font-size: 40px;
+}
+
+.cards{
+    display: inline-block;
+}
+
+.card{
+    /* margin-top: 15px; */
+    width: 30rem;
+    height: 18rem;
+    background-color: #6A63DD;
+    color: white;
+    display: inline-block;
+}
+
+h2{
+    margin-bottom: 2rem;
+}
+
+h3{
+    margin-bottom: 3rem;
+}
+
+.myDocsButton{
+    text-align: center;
+    width: 15rem;
+    height: 3rem;
+    /* background-color: black; */
+    cursor: pointer;
+}
+
+.sideImageDiv{
+    float: left;
+    width: 50%;
+    height: 30rem;
+}
+
+.sideImageDiv img{
+    height: 20rem;
+    height: 100%
+}
+
+.sideTextDiv{
+    float: right;
+    width: 50%;
+    font-size: 25px;
+    height: 30rem;
+    /* display: inline-block; */
+    /* text-align: center; */
+}
+
+.image{
+    /* display: inline-block; */
+    /* padding: 80px; */
+}
+
+.text{
+    display: inline-block;
+    padding: 80px;
+}
+
+.sideImageDiv2{
+    float: right;
+    width: 50%;
+    height: 30rem;
+}
+
+.sideImageDiv2 img{
+    height: 20rem;
+    height: 100%
+}
+
+.sideTextDiv2{
+    float: left;
+    width: 50%;
+    height: 30rem;
+    font-size: 25px;
+}
+
+.footer{
+    position: relative;
+    height: 30rem;
+    width: 100%;
+    text-align: center;
+    background-color: lightgray;
+}
+
+.footerContainer{
+    display: inline-block;
+}

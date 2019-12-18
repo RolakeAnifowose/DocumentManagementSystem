@@ -9,21 +9,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-        <!-- <script src = "/bootstrap/js/bootstrap.min.js"></script> -->
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
-
-            
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
 
-    <body>
+    <body onload="getRequest()">
 
         <div class="container">
             <nav class="sidebar" id="side-bar">
                 <ul class="sidemenu">
                     <span onclick="closesidebar()"  class="closeSideBar"><i class="fa fa-times" id="closeBar"></i></span>
-                <a href="login.html"><h3 class="title">myDocs</h3></a>
+                    <a href="landingpage.html"><h3 class="title">myDocs</h3></a>
 
                     <button id="modalBtn" class="btn" onclick="openModal()">
                         <i class="fa fa-plus"></i>
@@ -49,174 +45,130 @@
             </nav>
 
             <div class="main-content" id="maincontent">
-                    <header>
-                        <button class="openSideBarMenu" onclick="openSideBar()">
-                            <i class="fa fa-bars fa-2x" id="menuicon"></i>
-                        </button>
+                <header>
+                    <button class="openSideBarMenu" onclick="openSideBar()" onclick="closesidebar()">
+                        <i class="fa fa-bars fa-2x" id="menuicon"></i>
+                    </button>
 
-                        <div class="search">
-                            <input class="search__field" type="text" placeholder="Search ">
-                        </div>
+                    <div class="search">
+                        <input class="search__field" type="text">
+                        <i class="fa fa-search fa-2x"></i>
+                    </div>
 
-                        <div class="dropdown">        
-                                <button class="button" onclick="openDropdown()">
-                                    <i class="fa fa-user-circle"></i>
-                                    <span class="button-text">Anifowose Morolake</span>
-                                    <i class="fa fa-angle-down"></i></button>
-                                <div class="dropdown-content" id="dropdownmenu">
-                                    <a href="profile.html">Profile</a>
-                                    <a href="login.html">Logout</a>
-                                </div>
-                        </div>
+                    <div class="dropdown">        
+                        <button class="button" onclick="openDropdown()">
+                            <i class="fa fa-user-circle fa-lg"></i>
+                                <span class="button-text">Anifowose Morolake</span>
+                                <!-- <i class="fa fa-angle-down"></i></button> -->
+                            <div class="dropdown-content" id="dropdownmenu">
+                                <a href="profile.html">Profile</a>
+                                <a href="login.html">Logout</a>
+                            </div>
+                    </div>
 
-                    </header>
+                </header>
 
                 <div class="cards" id="cardsId">
-                    <div class="card">
-                        <div class="thumbnail">
+                    <div class="cardsBodyDiv">
+
+                    </div>
+                    <!-- <div class="individualcard"></div> -->
+                    <!-- <div class="individualcard" onclick="getRequest()"> -->
+                        <!-- <div class="thumbnail">
                             <img class="thumbnail-img" src="Uploads/image1.PNG">
-                        
+                        </div>
                         <div class="details">
-                            <div class="doc__title">Java Performance</div>
-                        </div></div>
-                    </div>                    
+                            <div class="doc__title"></div>
+                        </div> -->
+                    <!-- </div>                   -->
 
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image2.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">Eloquent Javascript</div>
-                        </div>
-                    </div>                  
-                    
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image3.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">Effective Java</div>
-                        </div>
-                    </div>            
-                 
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image5.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">JavaScript</div>
-                        </div>
-                    </div>
-
-                   <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image6.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">Clean Code</div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image7.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">Introduction to Algorithms</div>
-                        </div>
-                    </div>   
-                    
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image8.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">Spring Boot</div>
-                        </div>
-                    </div>    
-
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image9.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">Advanced Java</div>
-                        </div>
-                    </div> 
-                    
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image10.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">Advanced Java</div>
-                        </div>
-                    </div> 
-
-                    <div class="card">
-                        <div class="thumbnail">
-                            <img class="thumbnail-img" src="Uploads/image11.png">
-                        </div>
-                        <div class="details">
-                            <div class="doc__title">Core Java</div>
-                        </div>
-                    </div> 
-                    
-                    <div class="card">
-                            <div class="thumbnail">
-                                <img class="thumbnail-img" src="Uploads/image12.png">
-                            </div>
-                            <div class="details">
-                                <div class="doc__title">Clean Code</div>
-                            </div>
-                    </div>
-
-                    <div class="card">
-                            <div class="thumbnail">
-                                <img class="thumbnail-img" src="Uploads/image7.png">
-                            </div>
-                            <div class="details">
-                                <div class="doc__title">Clean Code</div>
-                            </div>
-                    </div>
-
-                    <div class="card">
-                            <div class="thumbnail">
-                                <img class="thumbnail-img" src="Uploads/image1.png">
-                            </div>
-                            <div class="details">
-                                <div class="doc__title">Clean Code</div>
-                            </div>
-                    </div>
-    
                 </div>
                     
                 </div>
             </div>
         </div>
 
-        <div id="simpleModal" class="modal" >
+        <form name="uploadForm">
+            <div id="simpleModal" class="modal">
                 <div class="modal-content">
-                        <div class="modal-header">
-                            <div class="uploadfile">
-                                <h2 style="text-align: center">File upload</h2> 
-                            </div>   
+                    <div class="modal-header">
+                        <div class="uploadfile">
+                            <h2 style="text-align: center">File upload</h2> 
+                        </div>   
+                    </div>
+    <!-- <img src="Uploads/undraw_add_content_d1tf.png"> -->
+                    <div class="modalbody" id="modalbody" draggable="true">
+                        <i class="fa fa-file fa-3x" id="fileicon" style="text-align: center; margin: 0 auto"></i><br>
+                        
+                        <input type="file" id="file" onchange="fileUpload()"> 
+                        <label for="file">Drag and drop or <span style="color: blue">browse</span> your files</label><br><br>
+                        
+                        <div class="progressbarForFileUploadDiv">
+                            <span class="progressbarForFileUpload"></span>
                         </div>
-
-                        <div class="modalbody" id="modalbody" draggable="true">
-                                <i class="fa fa-file fa-3x" id="fileicon" style="text-align: center; margin: 0 auto"></i><br>
-                                <input type="file" id="file"> 
-                                <label for="file">Drag and drop or <span style="color: blue">browse</span> your files</label><br><br>
+                    
                     </div>
 
                     <div class="modal-footer">
-                <button class="closeBtn">Close</button>
-                <button class="submitFile">Upload</button>
+                        <button class="closeBtn">Close</button>
+                        <button class="submitFile" id="fileUploadButton">Upload</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        
-        </div>
+        </form>
+
+        <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-storage.js"></script>
+        <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyAFW6bsQ6OcMFhH2mFLUG1hxEKFd8aGMNw",
+                authDomain: "documentmanagementsystem-80e75.firebaseapp.com",
+                databaseURL: "https://documentmanagementsystem-80e75.firebaseio.com",
+                projectId: "documentmanagementsystem-80e75",
+                storageBucket: "documentmanagementsystem-80e75.appspot.com",
+                messagingSenderId: "554927148626",
+                appId: "1:554927148626:web:fbf1f34e9953d8998f198b",
+                measurementId: "G-FYXL9RHX2S"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+
+            let form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+            event.preventDefault()});
+
+            function fileUpload(){
+            // let timestamp = Number(new Date());
+            // console.log(timestamp);
+            // let storageRef = firebase.storage().ref(timestamp.toString());
+            // console.log(storageRef);
+
+            // let $ = jQuery;
+            // let file_data = $('#file').prop('files')[0];
+
+            // storageRef.put(file_data);
+            // console.log(storageRef);
+
+            // Created a Storage Reference with root dir
+            var storageRef = firebase.storage().ref();
+            // Get the file from DOM
+            var file = document.getElementById("file").files[0];
+            console.log(file);
+            
+            //dynamically set reference to the file name
+            var thisRef = storageRef.child(file.name);
+
+            //put request upload file to firebase storage
+            thisRef.put(file).then(function(snapshot) {
+                alert("File Uploaded")
+                //  console.log('Uploaded a blob or file!');
+                });
+            }
+                        
+
+        </script>
 
         <script>
 
@@ -281,7 +233,7 @@
                    side.style.display = "block";
                    side.style.overflow = "auto;"
                    side.style.width = "140px";
-                   cardsId.style.marginLeft = "150px";
+                   cardsId.style.marginLeft = "170px";
                    cardsId.style.position = "fixed";
                 }
    
@@ -295,6 +247,124 @@
                 //    cardsId.style.overflow = "auto";
                    cardsId.style.position = "relative";
                 }
+                
+                function getRequest(){
+                let container = document.getElementsByClassName('container');
+                let cards = document.getElementsByClassName('cardsBodyDiv');
+
+                let cardcontainer = document.createElement('div');
+                cardcontainer.setAttribute('class', 'cardcontainer');
+                let sidebar = document.getElementsByClassName('sidebar'); 
+   
+                fetch('https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=I8uErmesF4soOINSXdN2vVP62DvzRWHA')
+                .then((res) => res.json())
+                .then((data) => {
+                    let output = "";
+                    data.results.forEach((item, index) => {
+                        
+                        let individualcard = document.createElement('div')
+                        individualcard.setAttribute('class', 'individualcard');
+
+                        let imagediv = document.createElement('div');
+                        imagediv.setAttribute('class', 'imagediv');
+
+                        let bookdetailsdiv = document.createElement('div');
+                        bookdetailsdiv.setAttribute('class', 'bookdetailsdiv');
+
+                        let img = document.createElement('img');
+                        img.setAttribute("src", "/Uploads/image6.png");
+                    
+                        let h4 = document.createElement('h4');
+                        h4.textContent = `${item.title}`;
+                        h4.style.textTransform = 'capitalize';
+                        // h4.style.fontSize = "7px"
+                        h4.style.marginTop = "0px"
+                        h4.style.marginBottom = "0px"
+                        h4.style.fontSize = "bold"
+
+                        let h5 = document.createElement('h5');
+                        h5.textContent = `${item.author}`;
+                        h5.style.textTransform = 'capitalize';
+                        h5.style.color ='black';
+                        // h5.style.fontSize = "7px"
+                        
+                        // const p = document.createElement('p')
+                        // p.textContent = `${item.description}...`
+
+                        // imagediv.style.height = "5rem";
+                        bookdetailsdiv.style.height = "5rem"
+                        document.body.appendChild(individualcard);
+                        individualcard.appendChild(imagediv)
+                        imagediv.appendChild(img)
+                        individualcard.appendChild(h4)
+                        individualcard.appendChild(h5)
+                        individualcard.style.overflow = "hidden"
+                        
+                        
+                        // individualcard.style.padding = "1rem";
+                        individualcard.style.position = "relative";
+                        img.style.height = "100%";
+                        // cards.style.overflow = "auto";
+
+                        let $ = jQuery;
+                        $(".cards").append(
+                            (individualcard)
+                        );
+
+                        // $('.individualcard' + book.rank).attr('nyt-rank', book.rank);
+
+                        // updateCover(individualcard, isbn);
+
+                        
+                
+
+                        // var listing =   '<div id="' + book.rank + '" class="entry">' +     '<p>' +       '<img src="" class="book-cover" id="cover-' + book.rank + '">' +     '</p>' +     '<h2><a href="' + book.amazon_product_url + '" target="_blank">' + bookInfo.title + '</a></h2>' +    '<h4>By ' + bookInfo.author + '</h4>' +    '<h4 class="publisher">' + bookInfo.publisher + '</h4>' +    '<p>' + bookInfo.description + '</p>' +     '<div class="stats">' +      '<hr>' +       '<p>Last Week: ' + lastWeekRank + '</p>' +       '<p>Weeks on list: ' + weeksOnList + '</p>' +    '</div>' +  '</div>';
+
+                        // $('#best-seller-titles').append(listing);
+
+                        // $('#' + book.rank).attr('nyt-rank', book.rank);
+
+                        //
+
+                        // function updateCover(id, isbn) {  fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=" + AIzaSyCw9u5yZM-NO_gKVDMHDSGAOUykT0_M7VQ, {    method: 'get'  })  .then(response => { return response.json(); })  .then(data => {    var img = data.items[0].volumeInfo.imageLinks.thumbnail;    img = img.replace(/^http:\/\//i, 'https://');    $('#cover-' + id).attr('src', img);  })    .catch(error=> {       console.log(error);  });}
+                // $(".individualcard").append('<div class="cardimage">' + img + '</div><div class="title">' +  `Title: ${item.title}`  + '</div><div class="author">' + `Author: ${item.author}` + '</div><div class="description">' +  `Description: ${item.description}` + '</div>');
+                    });
+                    
+                });
+            }
+
+            function updateCover(id, isbn) { 
+                fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=AIzaSyCw9u5yZM-NO_gKVDMHDSGAOUykT0_M7VQ", {    
+                         method: 'get'  })  
+                            .then(response => { return response.json(); })  
+                            .then(data => {    
+                                 var img = data.items[0].volumeInfo.imageLinks.thumbnail;    
+                                 img = img.replace(/^http:\/\//i, 'https://');    $('#cover-' + id).attr('src', img);  
+                                    })   
+                                     .catch(error=> {       
+                                         console.log(error); 
+                                });
+            }
+
+            
+            // var timestamp = Number(new Date());
+            // var storageRef = firebase.storage().ref(timestamp.toString());
+
+            // var $ = jQuery;
+            // var file_data = $('#file').prop('files')[0];
+
+            // storageRef.put(file_data);
+
+            
+
+            
+            // var modal = document.querySelector('modal');
+            // modal.addEventListener('submit', function(event) {
+            // event.preventDefault();
+
+            
+
+                //Validations, use Regex for mail and phone to check it onblur and use it for login, get registration data prepared in json and stored in a variable called payload
    
                 /*(function() {
                let modalbody = document.getElementById('modalbody');

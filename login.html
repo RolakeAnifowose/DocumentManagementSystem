@@ -4,45 +4,114 @@
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="Style/login.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <!--<link rel="stylesheet" media="(max-width: 768px)" href="max-640px.css">
-        <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
-        <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
-        <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">-->
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
         <script>
-            function validate(){
-                var email = document.loginForm.email.value;
-                var password = document.loginForm.password.value;
+            // function validate(){
+            //     var email = document.loginForm.email.value;
+            //     var password = document.loginForm.password.value;
 
-                if(email == "" || email == null){
-                    alert("Email cannot be blank");
-                }
-                else if(password == "" || passowrd == null){
-                    alert("Enter your password");
-                }
-            }
+            //     if(email == "" || email == null){
+            //         alert("Email cannot be blank");
+            //     }
+            //     else if(password == "" || passowrd == null){
+            //         alert("Enter your password");
+            //     }
+            // }
         </script>
     </head>
 
     <body>
         <div class="container">
             <div class="userdetails">
-                <form name="loginForm" method="POST" action="login.php" onsubmit="return validate()">
+                <form name="loginForm" method="POST">
 
                     <h4>Please enter your details to login</h4><br>
 
-                    <input type="email" name="email" class="details" placeholder="Email Address"><br><br>
+                        <div class="divForUserDetails">
+                            <div class="detailsDiv"> 
+                                <input type="email" name="email" id="email" class="details" placeholder="Email Address" onblur="matchEmail()">
+                                <p id="emailerror" class="error"></p>
+                                
+                            </div>
 
-                    <input type="password" name="password" class="details" placeholder="Password"><br><br><br>
+                            <div class="detailsDiv">
+                                <input type="password" name="password" id="password" class="details" placeholder="Password" onblur="checkPassword()">
+                                <p id="passworderror" class="error"></p>
+                            
+                            </div>
+                        </div>
 
-                    <input type="submit" value="LOGIN" name="login" class="login">
+                    <input type="submit" value="LOGIN" name="login" class="login" id="login" >
 
                     <p><centre><a href="passwordreset.html">Forgot Password?</a></centre></p>
 
-                    <p><centre><a href="signup.html">Registered User? Signup</a></centre></p>
+                    <p><centre><a href="signup.html">Unregistered User? Signup</a></centre></p>
                 </form>
             </div>
         </div>
+
+        <script>
+            function matchEmail(){
+                // let email = /^[a-z]\d\+\@/;
+                let email = /.{1,}@[^.]{1,}/;
+                if(!email.test(document.getElementById('email').value))
+                {
+                    document.getElementById('emailerror').innerHTML = "Input a valid email address";
+                    return false;
+                }
+                if(email.test(document.getElementById('email').value)){
+                    document.getElementById('emailerror').style.display = "none";
+                }    
+            }
+
+            function checkPassword(){
+                let password = document.getElementById('password').value;
+                if(password == "" || password == null){
+                    document.getElementById('passworderror').innerHTML = "Please input your password";
+                }
+                if(!password == "" || password == null){
+                    document.getElementById('passworderror').style.display = "none";
+                }
+            }
+
+            let payload = [];
+            let addUser = (ev) => {
+                ev.preventDefault();
+                let user = {
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value,
+                }
+            payload.push(user);
+            document.forms[0].reset();
+            login();
+
+            console.warn('User login', {payload});
+            
+            // localStorage.setItem('UserPayload', JSON.stringify(payload));
+            } 
+
+            document.addEventListener('DOMContentLoaded', ()=>{
+                document.getElementById('login').addEventListener('click', addUser)
+            });  
+
+            function login(){
+                let user = {
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value   
+                }
+
+                fetch('https://studypoolbackend.herokuapp.com/user/signin', {
+                method: 'POST', 
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+                })
+                .then(response => response.json())
+
+                // window.location = "home.html";
+            }
+        </script>
     </body>
 </html>

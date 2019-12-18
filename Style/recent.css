@@ -10,9 +10,12 @@ body{
     bottom: 0;
     top: 0;
     position: fixed;
-    background: linear-gradient(343.9deg,#19887a,#6eac54);
+    background: #6A63DD;
     font-family: "Raleway";
-    padding: 1rem;  
+    padding: 1rem;
+    float: left;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    font-size: 20px;
 }
 
 .side{
@@ -21,12 +24,12 @@ body{
 }
 
 .main-content{
-    margin-left: 17.5%;
+    margin-left: 16%;
 }
 
 header{
-    border-bottom: 1px solid #bbb;
-    padding: 1rem;
+    /* border-bottom: 1px solid #bbb; */
+    padding: 1rem;    
     overflow: hidden;
 }
 
@@ -77,31 +80,48 @@ ul li a {
     cursor: pointer;
 }
 
+header{
+    border-bottom: 1px solid #bbb;
+    padding: 1rem;
+    /* height: 8vh; */
+    overflow: hidden;
+}
+
 .openSideBarMenu{
     float:left;
-    margin-right: 15px;
+    /* margin-right: 15px; */
     cursor: pointer; 
-    padding: 8px 5px;
+    padding: 11px 7px;
     background-color: #f2f2f2;
-    color: #8c8c8c;
+    /* color: #8c8c8c; */
     border-radius: 5px;
     outline: none;
-}   
+    border: 1px solid#f2f2f2;
+}     
+
+.search{ 
+    float: left;
+    position: relative;
+}
+
+.search i{
+    position: absolute;
+    left: 22px;
+    top: 8px;
+}
 
 .search__field{
-    padding: 8px 16px;
     border-radius: 5px;
-    width: 15rem;
-    border: none;
-    border: 1px solid #bbb;
+    width: 40rem;
+    background: #f1f3f4;
+    border: #f1f3f4;
     outline: none;
-    height: 30px;
+    font-size: 20px;
+    margin-left: 1rem;
+    padding: 0.9rem;
+    padding-left: 40px;
 }
 
-.search{
-    float: left;
-}
-  
 .dropdown{
         float: right;
     margin-left: 10px;
@@ -207,6 +227,23 @@ select{
     display: block;
 }
 
+.cards{
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 100%;
+    text-align: center;
+}
+
+.imageDiv{
+    width: 35rem;
+    display: inline-block;
+}
+
+.imageDiv img{
+     width: 100%;
+    height: 100% 
+}
+
 .card{
     /* width: 100%; */
     margin: 2rem; 
@@ -237,6 +274,7 @@ select{
     /* position: absolute; */
     background-color: #f2f2f2;
     color: black;
+    font-size: 15px;
 }
 
 .search2{
@@ -312,12 +350,12 @@ select{
 }
 
 .submitFile{
-    background-color: #6eac54;
+    background-color:#6A63DD;
     color: white;
     width: 10rem;
     height: 2.5rem;
     border-radius: 25px;
-    border: 1px solid #6eac54;
+    border: 1px solid #6A63DD;
     bottom: 0;
     outline: none;
     cursor: pointer;
@@ -372,6 +410,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 1rem;
 }
   
 table, td, th {
@@ -437,6 +476,15 @@ tr:nth-child(even){
         overflow: auto;  
     }
 
+    header{
+        /* padding: none; */
+        /* width: 100vw; */
+        /* display: inline-block; */
+        /* height: 3rem; */
+        max-width: 100%;
+        padding: 0.5rem;
+    }
+
     .openSideBarMenu{
         display: block;
     }
@@ -446,7 +494,7 @@ tr:nth-child(even){
     }
 
     .search__field{
-        width: 10rem;
+        width: 11rem;
     }
 
     .button{
@@ -457,15 +505,15 @@ tr:nth-child(even){
         display: none;
     }
 
-    .cards{
-        display: flex;
-        flex-wrap: wrap;
+    .imageDiv{
+        width: unset;
     }
 
     .card{
         display: inline-block;
         margin: auto;
-        margin-top: 15px;
+        /* margin-top: 15px; */
+        margin: 1rem;
     }
 
     .modal-content{
@@ -495,7 +543,8 @@ tr:nth-child(even){
         /* position: relative; */
         font-family: inherit;
         /* z-index: 1; */
-        width: 100px;
+        /* width: 100px; */
+        margin-left: unset;
     }
 
     .dropdown-content{
@@ -521,6 +570,12 @@ tr:nth-child(even){
         font-family: inherit;
     }
 
+    .dropdown .button{
+        font-size: 35px;
+        padding: unset;
+        margin: 4px;
+    }
+
     .dropdown-content a:hover{
         background-color: #ddd;
     }
@@ -538,15 +593,11 @@ tr:nth-child(even){
 
     .search__field2{
         width: 10rem;
-    }
-
-    header{
-        padding: 0.5rem;
-        width: auto;
+        
     }
 
     hr{
-        width: 100vw;
+        /* width: 100vw; */
         padding: 0;
     }
   

@@ -13,40 +13,51 @@ body{
     width: 27%;
     height: auto;
     background-color: white;
-    /*top: 5%;
-    bottom: 5%;
-    right: 5%;
-    left: 5%;*/
     margin:auto;
     padding-top: 2rem;
-    margin-top: 10rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
     position: relative;
     overflow: auto;
     padding: 1rem;
 }
 .details{
-    border: none;
-    border-bottom: 1px solid #bbbbbb;
-    height: 30px;
-    width: 75%;
-    font-weight: bold;
-    display: block;
+    height: 40px;
+    width: 20rem;
     position: relative;
-    margin: 0 auto;
-    padding-left: 20px;
-    outline:none;
+    float: left;
+    border-radius: 5px;
+    border: white;
+    margin-bottom: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
+}
+.detailsDiv{
+    height: 120px;
+    /* width: 30rem; */
+}
+.divForUserDetails{
+    text-align: center;
+    display: inline-block;
 }
 ::placeholder{
     margin: auto;
     position: absolute;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-align:center;
     text-align: center;
-    font-style: italic;
+    /* font-style: italic; */
     font-family: 'Raleway';
 }
 input{
     text-align: center;
+}
+.error{
+    color: red;
+    text-align: center;
+    margin-top: 0;
+    font-size: 17px;
+    /* margin-bottom: 1rem; */
 }
 .login{
     width: 50%;
@@ -55,13 +66,14 @@ input{
     position: relative;
     margin: 0 auto;
     color: white;
-    background-color: #ff6600;
-    border: 1px solid#ff6600;
+    background-color: #6A63DD;
+    border: 1px solid#6A63DD;
     border-radius: 25px;
 }
 p{
     font-style: none;
     text-align: center;
+    font-size: 20px;
 }
 a{
     text-decoration: none;
@@ -71,18 +83,46 @@ h4{
     text-align: center;
     font-family: 'Raleway';
     font-weight: lighter;
-}
-@media only screen and (max-width: 768px){
-    .details{
-        width: 80%;
-    }
-    .userdetails{
-        width: 80%;
-    }
+    font-size: 20px;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (max-width: 768px){
     .details{
-        width: 80%;
+        width: 90%;
     }
+
+    .detailsDiv {
+        height: 70px;
+        width: 20rem;
+    }
+
+    .userdetails{
+        width: 80%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .error{
+        font-size: 13px;
+    }
+
+    ::placeholder{
+        margin: auto;
+        position: absolute;
+        font-weight: lighter;
+        text-align: center;
+        font-family: 'Raleway';
+        font-size: 15px;
+    }
+
+    input{
+        text-align: center;
+        font-size: 15px;
+        font-weight: lighter;
+    }
+
+    .login{
+        width: 10rem;
+    }
+
 }
