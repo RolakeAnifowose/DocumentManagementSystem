@@ -11,6 +11,7 @@
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
     </head>
 
     <body onload="getRequest()">
@@ -55,11 +56,12 @@
                         <i class="fa fa-search fa-2x"></i>
                     </div>
 
-                    <div class="dropdown">        
-                        <button class="button" onclick="openDropdown()">
-                            <i class="fa fa-user-circle fa-lg"></i>
+                    <div class="dropdown" onclick="openDropdown()">        
+                        <button class="button" >
+                            <i class="fa fa-user-circle fa-lg" ></i>
                                 <span class="button-text">Anifowose Morolake</span>
                                 <!-- <i class="fa fa-angle-down"></i></button> -->
+                            </button>
                             <div class="dropdown-content" id="dropdownmenu">
                                 <a href="profile.html">Profile</a>
                                 <a href="login.html">Logout</a>
@@ -88,7 +90,7 @@
             </div>
         </div>
 
-        <form name="uploadForm">
+        <form name="uploadForm" id="uploadForm">
             <div id="simpleModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -100,93 +102,166 @@
                     <div class="modalbody" id="modalbody" draggable="true">
                         <i class="fa fa-file fa-3x" id="fileicon" style="text-align: center; margin: 0 auto"></i><br>
                         
-                        <input type="file" id="file" onchange="fileUpload()"> 
-                        <label for="file">Drag and drop or <span style="color: blue">browse</span> your files</label><br><br>
+                        <input type="file" id="file"> 
+                        <label for="file">Drag and drop or <span style="color: blue">browse</span> your files</label>
                         
-                        <div class="progressbarForFileUploadDiv">
-                            <span class="progressbarForFileUpload"></span>
+                        <div class="progressbarForFileUploadDiv" id="progressbarForFileUploadDiv">
+                            <div class="progress-bar-fill">
+                                <span class="progressbarForFileUpload">0%</span>
+                            </div>
                         </div>
-                    
                     </div>
 
                     <div class="modal-footer">
                         <button class="closeBtn">Close</button>
-                        <button class="submitFile" id="fileUploadButton">Upload</button>
+                        <button class="submitFile" id="fileUploadButton"  onclick="fileUpload(); showProgressBar();">Upload</button>
                     </div>
                 </div>
             </div>
         </form>
 
+        <div class="modalForBookDetails" id="modalForBookDetails">
+            <div class="modalbodyForBookDetails" id="modalbodyForBookDetails">
+
+            </div>
+        </div>
+        <!-- <script>
+            let uploadForm = document.getElementById("uploadForm");
+            let submitFileButton = document.getElementById("fileUploadButton");
+            let progressBarFill = document.querySelector('progressbarForFileUploadDiv > .progress-bar-fill')
+            let progressbarForFileUpload = progressBarFill.querySelector('.progressbarForFileUpload')
+        
+            uploadForm.addEventListener('submit', uploadFile);
+            function uploadFile(e){
+                e.preventDefault();
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'thisRef');
+                fileUpload();
+                xhr.upload.addEventListener("progress", e => {
+                console.log(e);
+                });
+
+                // xhr.setRequestHeader("Content-Type", "multipart/form-data");
+                // xhr.send(new FormData(uploadForm));
+            }
+        </script> -->
+
         <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-storage.js"></script>
         <script>
-            var firebaseConfig = {
-                apiKey: "AIzaSyAFW6bsQ6OcMFhH2mFLUG1hxEKFd8aGMNw",
-                authDomain: "documentmanagementsystem-80e75.firebaseapp.com",
-                databaseURL: "https://documentmanagementsystem-80e75.firebaseio.com",
-                projectId: "documentmanagementsystem-80e75",
-                storageBucket: "documentmanagementsystem-80e75.appspot.com",
-                messagingSenderId: "554927148626",
-                appId: "1:554927148626:web:fbf1f34e9953d8998f198b",
-                measurementId: "G-FYXL9RHX2S"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
-
-            let form = document.querySelector('form');
-            form.addEventListener('submit', function(event) {
-            event.preventDefault()});
-
-            function fileUpload(){
-            // let timestamp = Number(new Date());
-            // console.log(timestamp);
-            // let storageRef = firebase.storage().ref(timestamp.toString());
-            // console.log(storageRef);
-
-            // let $ = jQuery;
-            // let file_data = $('#file').prop('files')[0];
-
-            // storageRef.put(file_data);
-            // console.log(storageRef);
-
-            // Created a Storage Reference with root dir
-            var storageRef = firebase.storage().ref();
-            // Get the file from DOM
-            var file = document.getElementById("file").files[0];
-            console.log(file);
+        var firebaseConfig = {
+            apiKey: "AIzaSyAFW6bsQ6OcMFhH2mFLUG1hxEKFd8aGMNw",
+            authDomain: "documentmanagementsystem-80e75.firebaseapp.com",
+            databaseURL: "https://documentmanagementsystem-80e75.firebaseio.com",
+            projectId: "documentmanagementsystem-80e75",
+            storageBucket: "documentmanagementsystem-80e75.appspot.com",
+            messagingSenderId: "554927148626",
+            appId: "1:554927148626:web:fbf1f34e9953d8998f198b",
+            measurementId: "G-FYXL9RHX2S"
+        };
             
-            //dynamically set reference to the file name
-            var thisRef = storageRef.child(file.name);
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
 
-            //put request upload file to firebase storage
-            thisRef.put(file).then(function(snapshot) {
-                alert("File Uploaded")
-                //  console.log('Uploaded a blob or file!');
+        let form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+        event.preventDefault()});
+
+        function fileUpload(){
+           
+        // Create a Storage Reference
+        var storageRef = firebase.storage().ref();
+        // Get the file from DOM
+        var file = document.getElementById("file").files[0];
+        console.log(file);
+        
+        //dynamically set reference to the file name
+        var thisRef = storageRef.child(file.name);
+
+        //put request upload file to firebase storage
+        thisRef.put(file).then(function(snapshot) {
+            alert("File Uploaded")
+            //  console.log('Uploaded a blob or file!');
+        });
+
+        // closeModal();
+        closesidebar();
+
+        let uploadForm = document.getElementById("uploadForm");
+        let submitFileButton = document.getElementById("fileUploadButton");
+        let progressBarFill = document.querySelector('progressbarForFileUploadDiv > .progress-bar-fill');            // let progressbarForFileUpload = progressBarFill.querySelector('.progressbarForFileUpload')
+        
+            uploadForm.addEventListener('submit', uploadFile);
+            function uploadFile(e){
+                e.preventDefault();
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'thisRef');
+                fileUpload();
+                xhr.upload.addEventListener("progress", e => {
+                console.log(e);
+                showProgressBar();
                 });
-            }
-                        
 
-        </script>
+                // xhr.setRequestHeader("Content-Type", "multipart/form-data");
+                // xhr.send(new FormData(uploadForm));
+            }
+
+            let progressbarForFileUploadDiv = document.getElementsByClassName('progressbarForFileUploadDiv');
+
+            function showProgressBar(){
+                progressbarForFileUploadDiv.style.display = "block";
+                progressbarForFileUploadDiv.style.visibility = "visible";
+            }
+
+        // let timestamp = Number(new Date());
+        // console.log(timestamp);
+        // let storageRef = firebase.storage().ref(timestamp.toString());
+        // console.log(storageRef);
+
+        // let $ = jQuery;
+        // let file_data = $('#file').prop('files')[0];
+
+        // storageRef.put(file_data);
+        // console.log(storageRef);
+
+        }
+    </script>          
 
         <script>
-
                 function openDropdown(){
-                    document.getElementById('dropdownmenu').classList.toggle("show");
+                    // document.getElementById('dropdownmenu').classList.toggle("show");
+                    dropdownmenu.style.display = "block";
                 }
    
-               window.onclick = function(e) {
-               if (!e.target.matches('.button')) {
-               var dropdownmenu = document.getElementById("dropdownmenu");
-                   if (dropdownmenu.classList.contains('show')) {
-                           dropdownmenu.classList.remove('show');
+                // window.onclick = function(e) {
+                //     if(e.target == dropdownmenu){
+                //        dropdownmenu.style.display = "none";
+                //    }
+
+                window.addEventListener('click', closeDropdown);
+
+                function closeDropdown(e){
+                    if(e.target == dropdownmenu){
+                       dropdownmenu.style.display = "none";
                    }
-               }
-               }
+                }
+
+                
+                // if (!e.target.matches('.button')) {
+                // var dropdownmenu = document.getElementById("dropdownmenu");
+                //     if (dropdownmenu.classList.contains('show')) {
+                //             dropdownmenu.classList.remove('show');
+                //     }
+                // }
+               
    
                //Modal
                let modal = document.getElementById('simpleModal');
+
                //Button
                let modalBtn = document.getElementById('modalBtn');
    
@@ -198,8 +273,6 @@
                closeBtn.addEventListener('click', closeModal);
    
                window.addEventListener('click', outsideModal);
-
-               
 
                modalBtn.removeEventListener('click', closesidebar);
    
@@ -286,12 +359,7 @@
                         h5.textContent = `${item.author}`;
                         h5.style.textTransform = 'capitalize';
                         h5.style.color ='black';
-                        // h5.style.fontSize = "7px"
                         
-                        // const p = document.createElement('p')
-                        // p.textContent = `${item.description}...`
-
-                        // imagediv.style.height = "5rem";
                         bookdetailsdiv.style.height = "5rem"
                         document.body.appendChild(individualcard);
                         individualcard.appendChild(imagediv)
@@ -300,23 +368,40 @@
                         individualcard.appendChild(h5)
                         individualcard.style.overflow = "hidden"
                         
-                        
                         // individualcard.style.padding = "1rem";
                         individualcard.style.position = "relative";
                         img.style.height = "100%";
-                        // cards.style.overflow = "auto";
 
                         let $ = jQuery;
                         $(".cards").append(
                             (individualcard)
                         );
 
+                        individualcard.addEventListener('click', openModalForCards);
+
+                        let modalForCards = document.getElementById('modalForBookDetails');
+
+                        let modalbodyForBookDetails = document.getElementById('modalbodyForBookDetails');
+
+                        window.addEventListener('click', outsideModalForCards)
+
+                        function openModalForCards(){
+                            let h6 = document.createElement('h6');
+                            h6.textContent = `${item.results}`;
+                            console.log(h6);    
+                            modalForCards.style.display = "block";
+                            modalbodyForBookDetails.appendChild(h6);
+                        }
+            
+                        function outsideModalForCards(e){
+                            if(e.target == modalForCards){
+                                modalForCards.style.display = "none";
+                            }
+                        }
+
                         // $('.individualcard' + book.rank).attr('nyt-rank', book.rank);
 
                         // updateCover(individualcard, isbn);
-
-                        
-                
 
                         // var listing =   '<div id="' + book.rank + '" class="entry">' +     '<p>' +       '<img src="" class="book-cover" id="cover-' + book.rank + '">' +     '</p>' +     '<h2><a href="' + book.amazon_product_url + '" target="_blank">' + bookInfo.title + '</a></h2>' +    '<h4>By ' + bookInfo.author + '</h4>' +    '<h4 class="publisher">' + bookInfo.publisher + '</h4>' +    '<p>' + bookInfo.description + '</p>' +     '<div class="stats">' +      '<hr>' +       '<p>Last Week: ' + lastWeekRank + '</p>' +       '<p>Weeks on list: ' + weeksOnList + '</p>' +    '</div>' +  '</div>';
 
@@ -324,26 +409,51 @@
 
                         // $('#' + book.rank).attr('nyt-rank', book.rank);
 
-                        //
-
                         // function updateCover(id, isbn) {  fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=" + AIzaSyCw9u5yZM-NO_gKVDMHDSGAOUykT0_M7VQ, {    method: 'get'  })  .then(response => { return response.json(); })  .then(data => {    var img = data.items[0].volumeInfo.imageLinks.thumbnail;    img = img.replace(/^http:\/\//i, 'https://');    $('#cover-' + id).attr('src', img);  })    .catch(error=> {       console.log(error);  });}
-                // $(".individualcard").append('<div class="cardimage">' + img + '</div><div class="title">' +  `Title: ${item.title}`  + '</div><div class="author">' + `Author: ${item.author}` + '</div><div class="description">' +  `Description: ${item.description}` + '</div>');
+                        // $(".individualcard").append('<div class="cardimage">' + img + '</div><div class="title">' +  `Title: ${item.title}`  + '</div><div class="author">' + `Author: ${item.author}` + '</div><div class="description">' +  `Description: ${item.description}` + '</div>');
                     });
                     
                 });
-            }
+            }    
+
+            
+            // function createCookie(recentlyViewedItems, recentlyViewed, 4){
+            //     if(days){
+            //         let date = new Date();
+            //         date.setTime(date.getTime()+(days*24*60*60*1000));
+            //         let expires = "; expires="+date.toGMTString();
+            //     }
+            //     else let expires = "";
+            //     document.cookie = 'recentlyViewedItems=recentlyViewed; expires = 1; path=/'
+
+            // }
+
+            // function readCookie(name){
+            //     let nameEQ = name + "=";
+            //     let ca = document.coookie.split(';');
+            //     for(let i = 0; i < ca.length; i++){
+            //         let c = ca[i];
+            //         while(c.charAt(0)==' ') c = c.substring(1,c.length);
+            //         if(c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length)
+            //     }
+            //     return null;
+            // }
+
+            // function eraseCookie(name){
+            //     createCookie(name, "", -1);
+            // }
 
             function updateCover(id, isbn) { 
                 fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=AIzaSyCw9u5yZM-NO_gKVDMHDSGAOUykT0_M7VQ", {    
-                         method: 'get'  })  
-                            .then(response => { return response.json(); })  
-                            .then(data => {    
-                                 var img = data.items[0].volumeInfo.imageLinks.thumbnail;    
-                                 img = img.replace(/^http:\/\//i, 'https://');    $('#cover-' + id).attr('src', img);  
-                                    })   
-                                     .catch(error=> {       
-                                         console.log(error); 
-                                });
+                    method: 'get'  })  
+                        .then(response => { return response.json(); })  
+                        .then(data => {    
+                             var img = data.items[0].volumeInfo.imageLinks.thumbnail;    
+                             img = img.replace(/^http:\/\//i, 'https://');    $('#cover-' + id).attr('src', img);  
+                                })   
+                                .catch(error=> {       
+                                console.log(error); 
+                        });
             }
 
             
